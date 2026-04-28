@@ -13,6 +13,7 @@ public abstract class EstadoCalculo implements Estado {
 	    else {
 	        calculadora.actualizarResultado(this.realizarCalculo(calculadora.getResultadoAcumulado(), unValor));
 	        calculadora.setEstado(new EstadoEsperandoOperando());
+	        
 	    }
 	}
 	 
