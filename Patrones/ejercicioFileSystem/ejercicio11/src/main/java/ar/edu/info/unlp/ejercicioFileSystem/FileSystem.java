@@ -31,7 +31,7 @@ public class FileSystem {
 		return this.raiz.buscar(nombre);
 	}
 	
-	public List<ElementoFS> buscarTodos(String nombre, List<ElementoFS> lista)
+	public List<ElementoFS> buscarTodos(String nombre)
 	{
 		return this.raiz.buscarTodos(nombre, new ArrayList<ElementoFS>());
 	}
