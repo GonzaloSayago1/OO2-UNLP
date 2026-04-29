@@ -38,6 +38,6 @@ public class FileSystem {
 	
 	public String listadoDeContenido()
 	{
-		return this.listadoDeContenido();
+		return this.raiz.listadoDeContenido();
 	}
 }
