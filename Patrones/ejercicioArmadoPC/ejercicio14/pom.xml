@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ar.edu.info.unlp</groupId>
-  <artifactId>ejercicio6Builder</artifactId>
+  <artifactId>ejercicioArmadoPC</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>ejercicio6Builder</name>
+  <name>ejercicioArmadoPC</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,11 +31,6 @@
         <scope>test</scope>
     </dependency>
 
-    <dependency>
-    	<groupId>ar.edu.info.unlp</groupId>
-    	<artifactId>ejercicioArmadoPC</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
   </dependencies>
 
 
