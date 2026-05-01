@@ -29,10 +29,7 @@ public class GamerBuilder extends ComputadoraBuilder{
 	@Override
 	public void agregarGabinete(Catalogo catalogo) {
 	    this.getComputadora().agregarComponente(catalogo.getComponente("Gabinete Gamer"));
-	    
 	    int consumoFinal = (int) (this.getComputadora().consumoTotal() * 1.5);
-//	    String nombreFuente = "Fuente " + consumoFinal + " w";
-//	    Componente fuente = catalogo.getComponente(catalogo.getComponente("Fuente " + consumoFinal + " w"));
 	    this.getComputadora().agregarComponente(catalogo.getComponente("Fuente " + consumoFinal + " w"));
 	}
 	
