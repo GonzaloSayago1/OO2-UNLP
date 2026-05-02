@@ -28,8 +28,4 @@ public class Computadora {
 		return precio;
 	} 
 	
-	protected void agregarCatalogo(Catalogo catalogo)
-	{
-		this.Componentes = catalogo.getComponnetes();
-	}
 }

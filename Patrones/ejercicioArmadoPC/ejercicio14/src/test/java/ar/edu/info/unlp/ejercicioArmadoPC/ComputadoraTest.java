@@ -26,7 +26,7 @@ public class ComputadoraTest {
 	@Test
 	void testConfiguracionGamer() {
 	    GamerBuilder builder = new GamerBuilder();
-	    Tecnico director = new Tecnico(builder, catalogo);
+	    Director director = new Director(builder, catalogo);
 	    
 	    Computadora pcGamer = director.armarComputadora();
 	    

@@ -22,9 +22,4 @@ public class Catalogo {
 	        .findFirst()
 	        .orElse(null);
 	}
-	
-	protected List<Componente> getComponnetes()
-	{
-		return  new ArrayList<Componente>(this.componentes);
-	}
 }

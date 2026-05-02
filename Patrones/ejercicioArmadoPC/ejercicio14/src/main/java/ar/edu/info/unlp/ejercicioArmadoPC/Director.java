@@ -2,11 +2,11 @@ package ar.edu.info.unlp.ejercicioArmadoPC;
 
 import java.util.List;
 
-public class Tecnico {
+public class Director {
 	private ComputadoraBuilder builder;
 	private Catalogo catalogo;
 	
-	public Tecnico(ComputadoraBuilder builder, Catalogo catalogo)
+	public Director(ComputadoraBuilder builder, Catalogo catalogo)
 	{
 		this.builder = builder;
 		this.catalogo = catalogo;
