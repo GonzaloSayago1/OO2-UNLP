@@ -31,21 +31,6 @@ public class Excursion {
 		this.estado = new Provisorio();
 	}
 	
-	protected void setEstado(Estado estado)
-	{
-		this.estado = estado;
-	}
-	
-	public void inscribir(Usuario usuario)
-	{
-		this.estado.inscribir(this, usuario);
-	}
-	
-	public String obtenerInformacion()
-	{
-		return this.estado.obtenerInformacion(this);
-	}
-	
 	protected boolean hayLugar()
 	{
 		return this.usuarios.size() < this.cupoMax;
@@ -86,6 +71,21 @@ public class Excursion {
 	private String obtenerEmails()
 	{
 		return "Emails: " + this.usuarios.stream().map(Usuario::getEmail).collect(Collectors.joining(", "));
+	}
+	
+	protected void setEstado(Estado estado)
+	{
+		this.estado = estado;
+	}
+	
+	public void inscribir(Usuario usuario)
+	{
+		this.estado.inscribir(this, usuario);
+	}
+	
+	public String obtenerInformacion()
+	{
+		return this.estado.obtenerInformacion(this);
 	}
 	
 	public boolean estaEnEspera(Usuario usuario) {

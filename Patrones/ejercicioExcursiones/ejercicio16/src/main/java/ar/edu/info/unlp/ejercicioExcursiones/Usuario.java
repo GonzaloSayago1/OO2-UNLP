@@ -1,4 +1,4 @@
-package ar.edu.info.unlp.ejercicioExcursiones;
+	package ar.edu.info.unlp.ejercicioExcursiones;
 
 public class Usuario {
 	private String nombre;
