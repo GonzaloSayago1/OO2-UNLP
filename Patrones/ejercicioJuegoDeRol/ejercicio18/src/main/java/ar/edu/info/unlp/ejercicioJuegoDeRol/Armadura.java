@@ -1,5 +1,5 @@
 package ar.edu.info.unlp.ejercicioJuegoDeRol;
 
-public abstract class Armadura {
-	
+public interface Armadura {
+	public int pelearContra(Arma arma);
 }

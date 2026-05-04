@@ -1,9 +1,22 @@
 package ar.edu.info.unlp.ejercicioJuegoDeRol;
 
 public class Espada extends Arma{
-
-	public Espada(int daño) {
-		super(daño);
+	
+	public int pelearContraArmaduraCuero()
+	{
+		this.setDaño(8);
+		return this.getDaño();
 	}
-
+	
+	public int pelearContraArmaduraHierro()
+	{
+		this.setDaño(5);
+		return this.getDaño();
+	}
+	
+	public int pelearContraArmaduraAcero()
+	{
+		this.setDaño(3);
+		return this.getDaño();
+	}
 }

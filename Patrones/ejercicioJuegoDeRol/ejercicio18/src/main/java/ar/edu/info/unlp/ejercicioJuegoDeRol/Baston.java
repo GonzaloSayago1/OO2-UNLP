@@ -1,22 +1,22 @@
 package ar.edu.info.unlp.ejercicioJuegoDeRol;
 
-public class Arco extends Arma{
-	
+public class Baston extends Arma{
+
 	public int pelearContraArmaduraCuero()
 	{
-		this.setDaño(5);
+		this.setDaño(2);
 		return this.getDaño();
 	}
 	
 	public int pelearContraArmaduraHierro()
 	{
-		this.setDaño(3);
+		this.setDaño(1);
 		return this.getDaño();
 	}
 	
 	public int pelearContraArmaduraAcero()
 	{
-		this.setDaño(2);
+		this.setDaño(1);
 		return this.getDaño();
 	}
 }
