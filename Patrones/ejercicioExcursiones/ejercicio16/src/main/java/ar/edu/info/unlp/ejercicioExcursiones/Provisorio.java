@@ -11,6 +11,7 @@ public class Provisorio implements Estado{
 
 	@Override
 	public String obtenerInformacion(Excursion excursion) {
-		return excursion.armarMensaje() + excursion.mensajeProvisorio();
+		return excursion.armarMensaje() + 
+				"Cantidad de usuarios faltantes para el cupo minimo: " + excursion.cantidadParaCupoMin();
 	}
 }

@@ -3,7 +3,6 @@ package ar.edu.info.unlp.ejercicioJuegoDeRol;
 public abstract class Arma {
 	private int daño;
 	
-	
 	protected void setDaño(int daño)
 	{
 		this.daño = daño;

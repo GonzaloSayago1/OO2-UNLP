@@ -58,17 +58,15 @@ public class Excursion {
 				+ ", Punto de encuentro: " + this.puntoEncuntro + ", ";
 	}
 	
-	protected String mensajeProvisorio()
-	{
-		return "Cantidad de usuarios faltantes para el cupo minimo: " + (this.cupoMin - this.usuarios.size());
+	protected int cantidadParaCupoMin() {
+		return this.cupoMin - this.usuarios.size();
 	}
 	
-	protected String mensajeDefinitivo()
-	{
-		return this.obtenerEmails() + "Cantidad de usuarios faltantes para el cupo maximo: " + (this.cupoMax - this.usuarios.size());
+	protected int cantidadParaCupoMax() {
+		return this.cupoMax - this.usuarios.size();
 	}
 	
-	private String obtenerEmails()
+	protected String obtenerEmails()
 	{
 		return "Emails: " + this.usuarios.stream().map(Usuario::getEmail).collect(Collectors.joining(", "));
 	}
