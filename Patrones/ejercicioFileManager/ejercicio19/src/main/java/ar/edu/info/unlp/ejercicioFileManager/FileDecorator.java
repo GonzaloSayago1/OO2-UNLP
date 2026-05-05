@@ -9,11 +9,13 @@ public abstract class FileDecorator implements FileComponent {
 	public FileDecorator(FileComponent componente) {
 		this.componente = componente;
 	}
-
+	
 	@Override
 	public String prettyPrint() {
 		return componente.prettyPrint() + this.impresionAdicional();
 	}
+	
+	protected abstract String impresionAdicional();
 	
 	@Override
 	public double getTamaño()

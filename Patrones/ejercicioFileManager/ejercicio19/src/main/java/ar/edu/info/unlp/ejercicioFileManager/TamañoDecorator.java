@@ -6,7 +6,7 @@ public class TamañoDecorator extends FileDecorator{
 	}
 
 	@Override
-	public String prettyPrint() {
-		return this.componente.prettyPrint() + " - tamaño: " + this.componente.getTamaño();
+	protected String impresionAdicional() {
+		return " - tamaño: " + this.componente.getTamaño();
 	}
 }

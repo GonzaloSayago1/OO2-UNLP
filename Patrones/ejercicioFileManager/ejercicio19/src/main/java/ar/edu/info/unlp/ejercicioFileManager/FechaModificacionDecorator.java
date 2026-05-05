@@ -6,7 +6,7 @@ public class FechaModificacionDecorator extends FileDecorator {
 	}
 
 	@Override
-	public String prettyPrint() {
-		return this.componente.prettyPrint() + " - fecha de modificacion: " + this.componente.getFechaModificacion();
+	protected String impresionAdicional() {
+		return " - fecha de modificacion: " + this.componente.getFechaModificacion();
 	}
 }

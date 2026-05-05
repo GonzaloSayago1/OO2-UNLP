@@ -7,7 +7,7 @@ public class PermisoDecorator extends FileDecorator{
 	}
 
 	@Override
-	public String prettyPrint() {
-		return this.componente.prettyPrint() + " - permisos: " + this.componente.getPermisos();
+	protected String impresionAdicional() {
+		return " - permisos: " + this.componente.getPermisos();
 	}
 }
