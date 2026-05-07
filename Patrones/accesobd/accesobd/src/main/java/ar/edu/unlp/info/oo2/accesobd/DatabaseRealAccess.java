@@ -31,4 +31,5 @@ public class DatabaseRealAccess implements DatabaseAccess {
 
         return this.currentId - 1;
     }
+    
 }
