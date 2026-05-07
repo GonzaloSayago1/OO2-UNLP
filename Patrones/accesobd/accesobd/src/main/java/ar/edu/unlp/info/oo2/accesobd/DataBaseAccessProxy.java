@@ -13,22 +13,21 @@ public class DataBaseAccessProxy implements DatabaseAccess{
 		this.autenticado = autenticado;
 	}
 	
-	public boolean estaAutenticado()
+	public void estaAutenticado()
 	{
-		return this.autenticado;
+		if(!this.autenticado)
+			throw new RuntimeException("Usuario no autenticado");
 	}
 
 	@Override
 	public Collection<String> getSearchResults(String queryString) {
-		if(!this.estaAutenticado())
-	        throw new RuntimeException("Usuario no autenticado");
+		this.estaAutenticado();
 	    return this.db.getSearchResults(queryString);
 	}
 
 	@Override
 	public int insertNewRow(List<String> rowData) {
-		if(!this.estaAutenticado())
-	        throw new RuntimeException("Usuario no autenticado");
+		this.estaAutenticado();
 		return this.db.insertNewRow(rowData);
 	}
 	
