@@ -6,7 +6,7 @@ public class CelsiusDecorator extends WeatherDecorator{
 		super(weather);
 	}
 	
-	private double getCelcius()
+	private double getCelsius()
 	{
 		return (this.getTemperatura() - 32) / 1.8;
 	}
@@ -14,6 +14,6 @@ public class CelsiusDecorator extends WeatherDecorator{
 	@Override
 	public String displayData() {
 		return super.displayData() 
-	            + "; C: " + this.getCelcius();
+	            + "; C: " + this.getCelsius();
 	}
 }
