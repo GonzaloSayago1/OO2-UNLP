@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class DataBaseAccessProxy implements DatabaseAccess{
-	private DatabaseAccess db;
+	private DatabaseRealAccess db;
 	private boolean autenticado;
 	
-	public DataBaseAccessProxy(DatabaseAccess db, boolean autenticado) {
+	public DataBaseAccessProxy(DatabaseRealAccess db, boolean autenticado) {
 		this.db = db;
 		this.autenticado = autenticado;
 	}

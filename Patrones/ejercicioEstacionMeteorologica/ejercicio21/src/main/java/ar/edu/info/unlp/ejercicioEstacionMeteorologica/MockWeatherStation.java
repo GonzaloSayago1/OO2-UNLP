@@ -31,4 +31,10 @@ public class MockWeatherStation implements WeatherData {
                "; Presión atmosf: " + this.getPresion() +
                "; Radiación solar: " + this.getRadiacionSolar();
     }
+    
+    public String displayDataCelsius() {
+        return "Temperatura C: " + ((this.getTemperatura() - 32) / 1.8) +
+               "; Presión atmosf: " + this.getPresion() +
+               "; Radiación solar: " + this.getRadiacionSolar();
+    }
 }

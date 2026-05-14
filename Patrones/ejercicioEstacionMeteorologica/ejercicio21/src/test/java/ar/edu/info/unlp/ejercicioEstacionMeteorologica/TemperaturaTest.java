@@ -10,7 +10,7 @@ public class TemperaturaTest {
 	MaxMinDecorator maxMin;
 	PromedioDecorator promedio;
 	WeatherStationAdapter adapter;
-	CelsiusDecorator celsius;
+	StationCelsius celsius;
 	
 	@BeforeEach
     void setUp() throws Exception 
@@ -44,7 +44,6 @@ public class TemperaturaTest {
 	@Test
 	public void testCeulcius()
 	{
-		celsius = new CelsiusDecorator(adapter);
-		assertEquals("Presión atmosf: " + 1008.0 + "; Radiación solar: " + 200.0 + "; C: " + 30.0, celsius.displayData());
+		assertEquals("Temperatura C: " + 30.0 + "; Presión atmosf: " + 1008.0 + "; Radiación solar: " + 200.0, mock.displayDataCelsius());
 	}
 }
