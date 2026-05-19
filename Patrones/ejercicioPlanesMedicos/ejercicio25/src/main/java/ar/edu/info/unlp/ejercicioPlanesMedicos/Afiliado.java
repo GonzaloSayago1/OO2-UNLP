@@ -1,6 +1,7 @@
 package ar.edu.info.unlp.ejercicioPlanesMedicos;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Afiliado {
@@ -12,11 +13,13 @@ public class Afiliado {
 	private List<PlanMedico> previos;
 	private Coseguro coseguro;
 	
-	public Afiliado(String nombre, int familiaresACargo, double salario, LocalDate fechaNacimiento) {
+	public Afiliado(String nombre, int familiaresACargo, double salario, LocalDate fechaNacimiento, PlanMedico plan) {
 		this.nombre = nombre;
 		this.familiaresACargo = familiaresACargo;
 		this.salario = salario;
 		this.fechaNacimiento = fechaNacimiento;
+		this.previos = new ArrayList<PlanMedico>();
+		this.plan = plan;
 	}
 	
 	public void agregarCoseguro(Coseguro coseguro)
@@ -31,6 +34,7 @@ public class Afiliado {
 	
 	public void setPlanMedico(PlanMedico plan)
 	{
+		this.previos.add(this.plan);//Agrego el actual a los planes previos
 		this.plan = plan;
 	}
 	

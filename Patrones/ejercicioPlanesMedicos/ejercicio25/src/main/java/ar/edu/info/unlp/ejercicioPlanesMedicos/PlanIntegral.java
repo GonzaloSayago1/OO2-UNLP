@@ -1,4 +1,4 @@
-package ar.edu.info.unlp.ejercicioPlanesMedicos;
+ package ar.edu.info.unlp.ejercicioPlanesMedicos;
 
 import java.time.LocalDate;
 
