@@ -1,4 +1,4 @@
-package ar.edu.unlp.info.oo2.facturacion_llamadas;
+ package ar.edu.unlp.info.oo2.facturacion_llamadas;
 
 import java.util.TreeSet;
 import java.util.ArrayList;
@@ -7,33 +7,17 @@ import java.util.SortedSet;
 
 public class GestorNumerosDisponibles {
 	private SortedSet<String> lineas = new TreeSet<String>();
-	private String tipoGenerador = "ultimo";
+	private Numero generador = new Ultimo();
 
 	public SortedSet<String> getLineas() {
 		return lineas;
 	}
 
 	public String obtenerNumeroLibre() {//Mal olor por preguntar por el tipo
-		String linea;
-		switch (tipoGenerador) {
-			case "ultimo":
-				linea = lineas.last();
-				lineas.remove(linea);
-				return linea;
-			case "primero":
-				linea = lineas.first();
-				lineas.remove(linea);
-				return linea;
-			case "random":
-				linea = new ArrayList<String>(lineas)
-						.get(new Random().nextInt(lineas.size()));
-				lineas.remove(linea);
-				return linea;
-		}
-		return null;
+		return this.generador.obtenerNumero(lineas);
 	}
 
-	public void cambiarTipoGenerador(String valor) {
-		this.tipoGenerador = valor;
+	public void cambiarTipoGenerador(Numero generador) {
+		this.generador = generador;
 	}
 }
