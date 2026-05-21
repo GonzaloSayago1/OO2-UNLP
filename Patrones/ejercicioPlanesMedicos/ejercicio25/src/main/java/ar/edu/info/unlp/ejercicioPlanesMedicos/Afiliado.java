@@ -11,7 +11,7 @@ public class Afiliado {
 	private LocalDate fechaNacimiento;
 	private PlanMedico plan;
 	private List<PlanMedico> previos;
-	private Coseguro coseguro;
+	private ICoseguro coseguro;
 	
 	public Afiliado(String nombre, int familiaresACargo, double salario, LocalDate fechaNacimiento, PlanMedico plan) {
 		this.nombre = nombre;
@@ -20,16 +20,12 @@ public class Afiliado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.previos = new ArrayList<PlanMedico>();
 		this.plan = plan;
+		this.coseguro = new SinCoseguro();
 	}
 	
-	public void agregarCoseguro(Coseguro coseguro)
+	public void agregarCoseguro(ICoseguro coseguro)
 	{
 		this.coseguro = coseguro;
-	}
-	
-	private boolean tieneCoseguro()
-	{
-		return this.coseguro != null;
 	}
 	
 	public void setPlanMedico(PlanMedico plan)
@@ -40,9 +36,7 @@ public class Afiliado {
 	
 	public double descontarCoseguro(double monto)
 	{
-		if(this.tieneCoseguro())
-			monto = this.coseguro.realizarDescuento(monto);
-		return monto;
+		return this.coseguro.realizarDescuento(monto);
 	}
 	
 	protected int getFamiliares()
@@ -57,15 +51,11 @@ public class Afiliado {
 	
 	protected double descontarViaje(double monto)
 	{
-		if(this.tieneCoseguro())
-			monto = this.coseguro.descontarViaje(monto);
-		return monto;
+		return this.coseguro.descontarViaje(monto);
 	}
 	
 	protected double descontarAntiguedad(double monto, double descuento)
 	{
-		if(this.tieneCoseguro())
-			monto -= this.coseguro.descontarAntiguedad(descuento);
-		return monto;
+		return this.coseguro.descontarAntiguedad(descuento);
 	}
 }

@@ -3,7 +3,7 @@ package ar.edu.info.unlp.ejercicioPlanesMedicos;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Coseguro {
+public class Coseguro implements ICoseguro{
 	private String nombre;
 	private int descuento;
 	private LocalDate fechaIngreso;
@@ -38,7 +38,7 @@ public class Coseguro {
 		return monto - this.montoCobertura;
 	}
 	
-	protected double descontarAntiguedad(double descuento)
+	public double descontarAntiguedad(double descuento)
 	{
 		return this.getAntiguedad() * descuento;
 	}
