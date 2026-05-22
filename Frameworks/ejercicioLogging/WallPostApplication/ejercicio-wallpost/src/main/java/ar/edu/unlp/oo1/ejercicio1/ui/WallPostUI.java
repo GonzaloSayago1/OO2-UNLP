@@ -1,6 +1,7 @@
 package ar.edu.unlp.oo1.ejercicio1.ui;
 
 import java.awt.GridLayout;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -27,6 +28,8 @@ public class WallPostUI {
   private JButton like; 
   private JButton dislike; 
   private JFrame window;
+  
+  Logger logger = Logger.getLogger(WallPostUI.class.getName());
 
   public WallPostUI() {
     this.wallPost = new WallPostImpl();
@@ -81,11 +84,13 @@ public class WallPostUI {
   
   private void wireComponents() {
     this.like.addActionListener( e -> {
+      logger.info("Click en like");
       this.wallPost.like();
       this.likesLabel.setText(String.valueOf(this.wallPost.getLikes()));
     });
     
     this.dislike.addActionListener( e -> {
+    	logger.info("Click en dislike");
       this.wallPost.dislike();
       this.likesLabel.setText(String.valueOf(this.wallPost.getLikes()));
     });
@@ -95,19 +100,26 @@ public class WallPostUI {
     });
     
     this.textArea.getDocument().addDocumentListener(new DocumentListener() {
-      
+    
+    	private void infoEscribir()
+    	{
+    		logger.info("Modificando texto");
+    	}
       @Override
       public void removeUpdate(DocumentEvent e) {
+    	this.infoEscribir();
         wallPost.setText(textArea.getText());
       }
       
       @Override
       public void insertUpdate(DocumentEvent e) {
+    	this.infoEscribir();
         wallPost.setText(textArea.getText());
       }
       
       @Override
       public void changedUpdate(DocumentEvent e) {
+    	this.infoEscribir();
         wallPost.setText(textArea.getText());
       }
     });
