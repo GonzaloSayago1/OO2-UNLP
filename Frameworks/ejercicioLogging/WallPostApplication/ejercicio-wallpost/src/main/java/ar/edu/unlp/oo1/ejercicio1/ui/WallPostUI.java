@@ -101,10 +101,11 @@ public class WallPostUI {
     
     this.textArea.getDocument().addDocumentListener(new DocumentListener() {
     
-    	private void infoEscribir()
-    	{
-    		logger.info("Modificando texto");
-    	}
+      private void infoEscribir()
+      {
+    	logger.info("Modificando texto");
+      }	
+    	
       @Override
       public void removeUpdate(DocumentEvent e) {
     	this.infoEscribir();
