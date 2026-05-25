@@ -13,8 +13,7 @@ public class Bolsa extends Item{
 		this.items = new ArrayList<Item>();
 	}
 	
-	@Override
-	public boolean tieneEspacio(int espacio) {
+	private boolean tieneEspacio(int espacio) {
 		return (this.items.size() + espacio) < this.capacidad;
 	}
 	

@@ -7,11 +7,6 @@ public class ItemUnitario extends Item{
 	}
 
 	@Override
-	protected boolean tieneEspacio(int espacio) {
-		return false;
-	}
-
-	@Override
 	public boolean agregarALaBolsa(Item item) {
 		return false;
 	}

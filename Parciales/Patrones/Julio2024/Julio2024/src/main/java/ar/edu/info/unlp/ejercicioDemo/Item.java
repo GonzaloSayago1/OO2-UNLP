@@ -17,8 +17,7 @@ public abstract class Item {
 	{
 		return this.nombre;
 	}
-	
-	protected abstract boolean tieneEspacio(int espacio);
+
 	public abstract boolean agregarALaBolsa(Item item);
 	public abstract Item buscarPorNombre(String nombre);
 	public abstract int espacioDisponible();
