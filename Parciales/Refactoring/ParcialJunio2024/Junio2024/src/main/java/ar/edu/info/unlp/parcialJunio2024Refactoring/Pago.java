@@ -6,8 +6,6 @@ public class Pago {
 	private List<Producto> productos;
 	private TipoDePago tipo;
 	
-	private static final double ADICIONAL_TARJETA = 1000.0; 
-	private static final double DESCUENTO_EFECTIVO = 2000.0;
 	
 	public Pago(TipoDePago tipo, List<Producto> productos) {
 		this.productos = productos;
@@ -19,17 +17,10 @@ public class Pago {
 		return this.productos.stream().mapToDouble(p -> p.calcularPrecio()).sum();
 	}
 	
-	public double calcularMontoFinalEfectivo()
+	public double calcularMontoFinal()
 	{
-		double total = this.calcularTotal();
-		if(total > 100000)
-			total = this.tipo.calcularPago(total, DESCUENTO_EFECTIVO);
-		return total ;
+		return this.tipo.calcularPago(this.calcularTotal());
 	}
 	
-	public double calcularMontoFinalTarjeta()
-	{
-		return this.tipo.calcularPago(this.calcularTotal(), ADICIONAL_TARJETA);
-	}
 	
 }
