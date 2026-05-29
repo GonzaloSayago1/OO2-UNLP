@@ -4,7 +4,7 @@ public class Renta {
 	private Vehiculo vehiculo;
 	private Cliente cliente;
 	private int diasRenta;
-	private String tipoRenta;
+	private TipoRenta tipoRenta;
 	private int kilometrajeInicial;
 	
 	public Renta(Vehiculo vehiculo, Cliente cliente, int diasRenta) {
@@ -12,36 +12,20 @@ public class Renta {
 		this.cliente = cliente;
 		this.diasRenta = diasRenta;
 		this.kilometrajeInicial = vehiculo.getKilometraje();
-		this.tipoRenta = "BASICO";
+		this.tipoRenta = new Basico();
 	}
 
-	public void setTipoRenta(String tipoRenta) {
+	public void setTipoRenta(TipoRenta tipoRenta) {
 		this.tipoRenta = tipoRenta;
 	}
 	
-	protected int kilometrosRecorridos()//Preguntar
+	protected int kilometrosRecorridos()
 	{
 		return vehiculo.getKilometraje() - this.kilometrajeInicial;
 	}
 	
 	public double calcularTotal()
 	{
-		if(this.tipoRenta == "BASICO")
-		{
-			double precio = diasRenta * vehiculo.getPrecioDia() + this.kilometrosRecorridos() * 
-					vehiculo.getPrecioPorKm();
-			double adicional = 1;
-			//Los autos más viejos tirnen un 15% de descuento
-			if(vehiculo.getAntiguedad() > 5)
-				adicional = 0.85;
-			return precio * adicional;
-		}
-		else if (this.tipoRenta == "PLUS") 
-		{
-			//int kilometrosRecorridos = vehiculo.getKilometraje() - this.kilometrajeInicial;
-			return this.kilometrosRecorridos() * vehiculo.getPrecioDia();
-		}
-		else 
-			return diasRenta * vehiculo.getPrecioDia(); 
+		return this.tipoRenta.calcularTotal(vehiculo, diasRenta, this.kilometrosRecorridos());
 	}
 }

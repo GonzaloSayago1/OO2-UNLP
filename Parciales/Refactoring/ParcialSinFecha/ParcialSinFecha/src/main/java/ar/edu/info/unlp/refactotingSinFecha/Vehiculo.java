@@ -24,4 +24,14 @@ public class Vehiculo {
 	public void aumentarKilometraje(int cantidadKM)
 	{
 	}
+	
+	protected double calculaPrecioKilometro(int kilometros)
+	{
+		return kilometros * this.getPrecioPorKm();
+	}
+	
+	protected double calcularPrecioDia(int diasRenta)
+	{
+		return diasRenta * this.getPrecioDia();
+	}
 }
