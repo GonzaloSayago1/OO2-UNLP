@@ -1,0 +1,15 @@
+# Ignorar carpetas de compilación de Maven (¡La que te traía problemas!)
+**/target/
+bin/
+
+# Ignorar archivos compilados de Java
+*.class
+
+# Ignorar configuraciones específicas de IDEs (Eclipse, IntelliJ, NetBeans)
+.metadata/
+.settings/
+.project
+.classpath
+.idea/
+*.iml
+*.factorypath
