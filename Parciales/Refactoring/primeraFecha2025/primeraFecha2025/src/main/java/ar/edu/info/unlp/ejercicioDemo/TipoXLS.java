@@ -1,7 +1,7 @@
 package ar.edu.info.unlp.ejercicioDemo;
 
 public class TipoXLS extends Tipo{
-	@Override
+	@Override 
 	protected void configureMetadata(Document document, DocumentFile docFile)
 	{
 		docFile.setContentType("application/vnd.ms-excel");
