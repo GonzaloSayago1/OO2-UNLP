@@ -2,11 +2,13 @@ package ar.edu.unlp.info.oo2.facturacion_llamadas;
 
 import java.util.SortedSet;
 
-public class Ultimo extends Numero{
+public class Ultimo implements TipoGenerador{
 
 	@Override
-	protected String obtenerNumero(SortedSet<String> lineas) {
-		return lineas.last();
+	public String obtenerNumero(SortedSet<String> lineas) {
+		String linea = lineas.last();
+		lineas.remove(linea);
+		return linea;
 	}
 
 }

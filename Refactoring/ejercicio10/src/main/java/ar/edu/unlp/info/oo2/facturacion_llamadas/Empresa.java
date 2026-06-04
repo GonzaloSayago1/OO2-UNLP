@@ -7,70 +7,51 @@ public class Empresa {
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 	private List<Llamada> llamadas = new ArrayList<Llamada>();
 	private GestorNumerosDisponibles guia = new GestorNumerosDisponibles();
-
-	static double descuentoJur = 0.15;
-	static double descuentoFis = 0;
-	static double precioLlamadaNacional = 3;
-	static double precioLlamadaInternacional = 150;
-	static double adicionalInternacional = 50;
+	
+	static double IVA = 0.21;
 
 	public boolean agregarNumeroTelefono(String str) {
-	    if (!guia.getLineas().contains(str)) {
-	        guia.getLineas().add(str);
-	        return true;
-	    }
-	    return false;
+		boolean encontre = guia.getLineas().contains(str);
+		if (!encontre) {
+			guia.getLineas().add(str);
+			encontre= true;
+			return encontre;
+		}
+		else {
+			encontre= false;
+			return encontre;
+		}
 	}
 
 	public String obtenerNumeroLibre() {
 		return guia.obtenerNumeroLibre();
 	}
 	
-	public ClienteFisico registrarClienteFisico(String data, String nombre)
+	public Cliente RegistrarUsuarioFisico(String data, String nombre, TipoCliente tipo)
 	{
-		ClienteFisico cliente = new ClienteFisico();
-		cliente.setNombre(nombre);
-		cliente.setNumeroTelefono(this.obtenerNumeroLibre());
-		cliente.setDni(data);
-		cliente.setDescuento(descuentoFis);
-		this.clientes.add(cliente);
+		Cliente cliente = new Cliente(nombre, tipo, this.obtenerNumeroLibre());
+		cliente.setDNI(data);
+		clientes.add(cliente);
 		return cliente;
 	}
 	
-	public ClienteJuridico registrarClienteJuridico(String data, String nombre)
+	public Cliente RegistrarUsuarioJuridico(String data, String nombre, TipoCliente tipo)
 	{
-		ClienteJuridico cliente = new ClienteJuridico();
-		cliente.setNombre(nombre);
-		cliente.setNumeroTelefono(this.obtenerNumeroLibre());
+		Cliente cliente = new Cliente(nombre, tipo, this.obtenerNumeroLibre());
 		cliente.setCuit(data);
-		cliente.setDescuento(descuentoJur);
-		this.clientes.add(cliente);
+		clientes.add(cliente);
 		return cliente;
 	}
 
-	private void agregarLlamanda(Llamada llamada)
-	{
-		this.llamadas.add(llamada);
-	}
-	
-	public Llamada registrarLlamadaInternacional(Cliente origen, Cliente destino, int duracion) {
-		Llamada llamada = new LlamadaInternacional(origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion, this.precioLlamadaInternacional, this.adicionalInternacional);
+	public Llamada registrarLlamada(Cliente origen, Cliente destino, TipoLlamada tipoLlamada, int duracion) {
+		Llamada llamada = new Llamada(tipoLlamada, origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion);
 		llamadas.add(llamada);
-		origen.agregarLLamada(llamada);
-		return llamada;
-	}
-	
-	public Llamada registrarLlamadaNacional(Cliente origen, Cliente destino, int duracion) {
-		Llamada llamada = new LlamadaNacional(origen.getNumeroTelefono(), destino.getNumeroTelefono(), duracion, this.precioLlamadaNacional);
-		llamadas.add(llamada);
-		origen.agregarLLamada(llamada);
+		origen.agregarLlamada(llamada);
 		return llamada;
 	}
 
 	public double calcularMontoTotalLlamadas(Cliente cliente) {
-	    return cliente.getLlamadas().stream()
-	        .mapToDouble(l -> cliente.aplicarDescuento(l.calcularPrecio()))
-	        .sum();
+		return cliente.calcularTotalLlamadas(IVA);
 	}
 
 	public int cantidadDeUsuarios() {
